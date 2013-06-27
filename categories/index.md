@@ -1,5 +1,5 @@
 ---
-title: 分类
+title: 博文分类
 layout: page
 ---
 
