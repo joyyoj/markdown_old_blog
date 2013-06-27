@@ -17,13 +17,13 @@
         <h1>{{ page.title }}</h1>
         </header>
         <nav>
-        <span><a title="И╕√И║╣" class="" href="/">И╕√И║╣</a></span>
-        <span><a title="Е┘ЁД╨▌Д╫°Х─┘" class="" href="/about/">Е┘ЁД╨▌Д╫°Х─┘</a></span>
-        <span><a title="Х╝©Е╝╒Г∙≥Х╗─" class="" href="/guestbook/">Х╝©Е╝╒Г∙≥Х╗─</a></span>
-        <span><a title="Е█ Ф√┤Е┬├Г╠╩" class="" href="/categories/">Е█ Ф√┤Е┬├Г╠╩</a></span>
-        <span><a title="Ф═┤Г╜╬" class="" href="/tags/">Ф═┤Г╜╬</a></span>
-        <span><a title="И⌠╬Ф▌╔" class="" href="/links/">Е╦╦Г■╗И⌠╬Ф▌╔</a></span>
-        <span><a title="RSSХ╝╒И≤┘" class="" href="/feed/">Х╝╒И≤┘</a></span>
+        <span><a title="йврЁ" class="" href="/">йврЁ</a></span>
+        <span><a title="╧ьсзвВуъ" class="" href="/about/">╧ьсзвВуъ</a></span>
+        <span><a title="╥ц©маТят" class="" href="/guestbook/">╥ц©маТят</a></span>
+        <span><a title="╡╘нд╥жюЮ" class="" href="/categories/">╡╘нд╥жюЮ</a></span>
+        <span><a title="╠Йг╘" class="" href="/tags/">╠Йг╘</a></span>
+        <span><a title="а╢╫с" class="" href="/links/">Ёёсца╢╫с</a></span>
+        <span><a title="RSS╤╘тд" class="" href="/feed/">╤╘тд</a></span>
         </nav>
         <article class="content">
         {{ content }}
