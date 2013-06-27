@@ -1,0 +1,6 @@
+markdown: rdiscount
+permalink: /:year/:month/:title/
+url: http://joyyoj.github.com
+author: Joyyoj
+pygments: true
+paginate: 16
