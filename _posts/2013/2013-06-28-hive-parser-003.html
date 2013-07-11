@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>2013-06-28-hive-parser-003</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: 29d1c5bc36da364ad5aa86946d420b7bbc54a253 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<hr />
+<p>layout: post
+title: HIVE基本框架
+categories:
+- 分布式查询
+tags:</p>
+<h2>- HIVE</h2>
+<h1>HIVE源码分析之数据模型（二）</h1>
+<p><em>FieldSchema</em></p>
+<p><em>ObjectInspector</em></p>
+<pre><code>public interface ObjectInspector {
+    public static enum Category {
+        PRIMITIVE, LIST, MAP, STRUCT, UNION
+    };
+    String getTypeName();
+    Category getCategory();
+}
+</code></pre>
+
+<p>StructObjectInspector</p>
+<pre><code>public abstract class StructObjectInspector implements ObjectInspector {
+
+  // ** Methods that does not need a data object **
+  /**
+   * Returns all the fields.
+   */
+  public abstract List&lt;? extends StructField&gt; getAllStructFieldRefs();
+
+  /**
+   * Look up a field.
+   */
+  public abstract StructField getStructFieldRef(String fieldName);
+
+  // ** Methods that need a data object **
+  /**
+   * returns null for data = null.
+   */
+  public abstract Object getStructFieldData(Object data, StructField fieldRef);
+
+  /**
+   * returns null for data = null.
+   */
+  public abstract List&lt;Object&gt; getStructFieldsDataAsList(Object data);
+}
+public interface StructField {
+  /**
+   * Get the name of the field. The name should be always in lower-case.
+   */
+  String getFieldName();
+
+  /**
+   * Get the ObjectInspector for the field.
+   */
+  ObjectInspector getFieldObjectInspector();
+
+  /**
+   * Get the comment for the field. May be null if no comment provided.
+   */
+  String getFieldComment();
+}
+</code></pre>
+
+<p><em>MapObjectInspector</em></p>
+<pre><code>public interface MapObjectInspector extends ObjectInspector {
+
+  // ** Methods that does not need a data object **
+  // Map Type
+  ObjectInspector getMapKeyObjectInspector();
+
+  ObjectInspector getMapValueObjectInspector();
+
+  // ** Methods that need a data object **
+  // In this function, key has to be of the same structure as the Map expects.
+  // Most cases key will be primitive type, so it's OK.
+  // In rare cases that key is not primitive, the user is responsible for
+  // defining
+  // the hashCode() and equals() methods of the key class.
+  Object getMapValueElement(Object data, Object key);
+
+  /**
+   * returns null for data = null.
+   * 
+   * Note: This method should not return a Map object that is reused by the same
+   * MapObjectInspector, because it's possible that the same MapObjectInspector
+   * will be used in multiple places in the code.
+   * 
+   * However it's OK if the Map object is part of the Object data.
+   */
+  Map&lt;?, ?&gt; getMap(Object data);
+
+  /**
+   * returns -1 for NULL map.
+   */
+  int getMapSize(Object data);
+}
+</code></pre>
+
+<p><em>ListObjectInspector</em></p>
+<pre><code>public interface ListObjectInspector extends ObjectInspector {
+
+  // ** Methods that does not need a data object **
+  ObjectInspector getListElementObjectInspector();
+
+  // ** Methods that need a data object **
+  /**
+   * returns null for null list, out-of-the-range index.
+   */
+  Object getListElement(Object data, int index);
+
+  /**
+   * returns -1 for data = null.
+   */
+  int getListLength(Object data);
+
+  /**
+   * returns null for data = null.
+   * 
+   * Note: This method should not return a List object that is reused by the
+   * same ListObjectInspector, because it's possible that the same
+   * ListObjectInspector will be used in multiple places in the code.
+   * 
+   * However it's OK if the List object is part of the Object data.
+   */
+  List&lt;?&gt; getList(Object data);
+}
+</code></pre>
+
+<h5>？Parser如何使用ObjectInspector</h5>
+<p>TypeInfo getTypeInfoFromObjectInspector();</p>
+<p>ObjectInspector 不仅仅是
+MetaStoreUtils</p>
+<pre><code>static List&lt;FieldSchema&gt; getFieldsFromDeserializer(String tableName,    Deserializer deserializer) {
+    获取ObjectInspector；
+    根据ObjectInspector的类型获取Field的OI；
+    返回FieldSchema；
+}
+</code></pre>
+
+<p><code>$ sudo apt-get install vim-gnome</code></p>
+<p><code>javascript
+/**
+* nth element in the fibonacci series.
+* @param n &gt;= 0
+* @return the nth element, &gt;= 0.
+*/
+function fib(n) {
+  var a = 1, b = 1;
+  var tmp;
+  while (--n &gt;= 0) {
+    tmp = a;
+    a += b;
+    b = tmp;
+  }
+  return a;
+}
+document.write(fib(10));</code></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
